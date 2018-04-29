@@ -1,13 +1,21 @@
-DROP DATABASE IF EXISTS test;
-CREATE DATABASE IF NOT EXISTS test /*!40100 DEFAULT CHARACTER SET utf8 */;
-USE test;
+DROP DATABASE IF EXISTS cexp;
+CREATE DATABASE IF NOT EXISTS cexp /*!40100 DEFAULT CHARACTER SET utf8 */;
+USE cexp;
 
 DROP TABLE IF EXISTS users;
 CREATE TABLE IF NOT EXISTS users (
   id int(11) NOT NULL AUTO_INCREMENT,
-  username varchar(50) NOT NULL,
-  role varchar(50) NOT NULL,
-  password varchar(500) NOT NULL,
+  username varchar(256) NOT NULL,
+  role varchar(256) NOT NULL,
+  password varchar(256) NOT NULL,
   PRIMARY KEY (id)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 
+DROP TABLE IF EXISTS usertoken;
+CREATE TABLE IF NOT EXISTS usertoken (
+  id        INT          NOT NULL AUTO_INCREMENT,
+  token     VARCHAR(256) ,
+  user_id   INT          NOT NULL,
+  user_type VARCHAR(256) NOT NULL,
+  PRIMARY KEY (id)
+)ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
